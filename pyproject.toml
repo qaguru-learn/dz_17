@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "dz-17"
+version = "0.1.0"
+description = ""
+authors = ["legend23 <yu@vtechnology.ru>"]
+license = "GPL"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pytest = "^8.1.1"
+allure-pytest = "^2.13.5"
+pydantic = "^2.7.0"
+requests = "^2.31.0"
+
+[tool.pytest.ini_options]
+addopts = "-v --alluredir=allure-results --clean-alluredir"
+markers = [
+    "positive: Позитивные сценарии",
+    "negative: Негативные сценарии"
+]
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
