@@ -17,7 +17,8 @@ requests = "^2.31.0"
 addopts = "-v --alluredir=allure-results --clean-alluredir"
 markers = [
     "positive: Позитивные сценарии",
-    "negative: Негативные сценарии"
+    "negative: Негативные сценарии",
+    "smoke: базовые сценарии"
 ]
 [build-system]
 requires = ["poetry-core"]

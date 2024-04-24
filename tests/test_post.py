@@ -2,7 +2,7 @@ import requests
 from data.constant import User
 import allure
 import pytest
-from src.models.post_response import PostUserResponse
+from src.models.post_response import CreateUserResponse
 from src.errors import WrongStatusCode, WrongJson
 
 
@@ -19,8 +19,8 @@ def test_positive_create_user():
             "Статус код должен равняться 201"
 
     with allure.step('Проверка содержания. Ожидается json с данными пользователя'):
-        assert PostUserResponse(**response.json()), \
-            "Содержание должно соответствовать схеме ответа PostUserResponse"
+        assert CreateUserResponse(**response.json()), \
+            "Содержание должно соответствовать схеме ответа CreateUserResponse"
 
     with allure.step('Проверка соответствия содержимого ответа'):
         response_json = response.json()
@@ -47,7 +47,7 @@ def test_negative_create_user(wrong_name):
 
     with allure.step('Проверка статуса. Ожидается статус 400'):
         try:
-            assert 400 == 400, \
+            assert response.status_code == 400, \
                 "Статус код должен равняться 400"
         except AssertionError:
             raise WrongStatusCode(response.status_code, 400)

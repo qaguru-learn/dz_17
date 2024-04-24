@@ -37,3 +37,13 @@ class Support(BaseModel):
 class GetUserResponse(BaseModel):
     data: User
     support: Support
+
+
+
+class GetListUsersResponse(BaseModel):
+    page: int
+    per_page: int
+    total: int
+    total_pages: int
+    data: list[User]
+    support: Support
